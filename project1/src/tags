@@ -1,0 +1,142 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	/a3c87ab5/
+AM	Math/random.h	/^#define AM /;"	d
+Cleaning the directory	README.md	/^#### Cleaning the directory$/;"	t
+Compiling the project using CMake	README.html	/^<h3 id="compiling-the-project-using-cmake">Compiling the project using CMake<\/h3>$/;"	j
+Compiling the project using CMake	README.md	/^### Compiling the project using CMake$/;"	S
+Compilling and running the project	README.html	/^<h2 id="compilling-and-running-the-project">Compilling and running the project<\/h2>$/;"	i
+Compilling and running the project	README.md	/^## Compilling and running the project$/;"	s
+Completing the missing parts	README.html	/^<h2 id="completing-the-missing-parts">Completing the missing parts<\/h2>$/;"	i
+Completing the missing parts	README.md	/^## Completing the missing parts ##$/;"	s
+EPS	Math/random.h	/^#define EPS /;"	d
+Hamiltonian	Hamiltonians/hamiltonian.cpp	/^Hamiltonian::Hamiltonian(System* system) {$/;"	f	class:Hamiltonian
+Hamiltonian	Hamiltonians/hamiltonian.h	/^class Hamiltonian {$/;"	c
+HarmonicOscillator	Hamiltonians/harmonicoscillator.cpp	/^HarmonicOscillator::HarmonicOscillator(System* system, double omega) :$/;"	f	class:HarmonicOscillator
+HarmonicOscillator	Hamiltonians/harmonicoscillator.h	/^class HarmonicOscillator : public Hamiltonian {$/;"	c
+IA	Math/random.h	/^#define IA /;"	d
+IM	Math/random.h	/^#define IM /;"	d
+IQ	Math/random.h	/^#define IQ /;"	d
+IR	Math/random.h	/^#define IR /;"	d
+InitialState	InitialStates/initialstate.cpp	/^InitialState::InitialState(System* system) {$/;"	f	class:InitialState
+InitialState	InitialStates/initialstate.h	/^class InitialState {$/;"	c
+NDIV	Math/random.h	/^#define NDIV /;"	d
+NTAB	Math/random.h	/^#define NTAB /;"	d
+Particle	particle.cpp	/^Particle::Particle() {$/;"	f	class:Particle
+Particle	particle.h	/^class Particle {$/;"	c
+RM	Makefile	/^RM := rm -r$/;"	m
+RNMX	Math/random.h	/^#define RNMX /;"	d
+Random	Math/random.h	/^class Random {$/;"	c
+RandomUniform	InitialStates/randomuniform.cpp	/^RandomUniform::RandomUniform(System*    system,$/;"	f	class:RandomUniform
+RandomUniform	InitialStates/randomuniform.h	/^class RandomUniform : public InitialState {$/;"	c
+Sampler	sampler.cpp	/^Sampler::Sampler(System* system) {$/;"	f	class:Sampler
+Sampler	sampler.h	/^class Sampler {$/;"	c
+Simple Variational Monte Carlo solve for FYS4411	README.html	/^<h1 id="simple-variational-monte-carlo-solve-for-fys4411">Simple Variational Monte Carlo solve f/;"	h
+Simple Variational Monte Carlo solve for FYS4411	README.md	/^# Simple Variational Monte Carlo solve for FYS4411$/;"	c
+SimpleGaussian	WaveFunctions/simplegaussian.cpp	/^SimpleGaussian::SimpleGaussian(System* system, double alpha) :$/;"	f	class:SimpleGaussian
+SimpleGaussian	WaveFunctions/simplegaussian.h	/^class SimpleGaussian : public WaveFunction {$/;"	c
+System	system.h	/^class System {$/;"	c
+WaveFunction	WaveFunctions/wavefunction.cpp	/^WaveFunction::WaveFunction(System* system) {$/;"	f	class:WaveFunction
+WaveFunction	WaveFunctions/wavefunction.h	/^class WaveFunction {$/;"	c
+Windows	README.md	/^#### Windows$/;"	t
+adjustPosition	particle.cpp	/^void Particle::adjustPosition(double change, int dimension) {$/;"	f	class:Particle	typeref:typename:void
+cb1	README.html	/^<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><spa/;"	I
+cb1-1	README.html	/^<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><spa/;"	I
+cb1-10	README.html	/^<span id="cb1-10"><a href="#cb1-10"><\/a><span class="co"># Make the Makefile using two threads</;"	I
+cb1-11	README.html	/^<span id="cb1-11"><a href="#cb1-11"><\/a><span class="fu">make<\/span> -j2<\/span>$/;"	I
+cb1-12	README.html	/^<span id="cb1-12"><a href="#cb1-12"><\/a><\/span>$/;"	I
+cb1-13	README.html	/^<span id="cb1-13"><a href="#cb1-13"><\/a><span class="co"># Move the executable to the top-direc/;"	I
+cb1-14	README.html	/^<span id="cb1-14"><a href="#cb1-14"><\/a><span class="fu">mv<\/span> vmc ..<\/span><\/code><\/pr/;"	I
+cb1-2	README.html	/^<span id="cb1-2"><a href="#cb1-2"><\/a><span class="fu">mkdir<\/span> build<\/span>$/;"	I
+cb1-3	README.html	/^<span id="cb1-3"><a href="#cb1-3"><\/a><\/span>$/;"	I
+cb1-4	README.html	/^<span id="cb1-4"><a href="#cb1-4"><\/a><span class="co"># Move into the build-directory<\/span></;"	I
+cb1-5	README.html	/^<span id="cb1-5"><a href="#cb1-5"><\/a><span class="bu">cd<\/span> build<\/span>$/;"	I
+cb1-6	README.html	/^<span id="cb1-6"><a href="#cb1-6"><\/a><\/span>$/;"	I
+cb1-7	README.html	/^<span id="cb1-7"><a href="#cb1-7"><\/a><span class="co"># Run CMake to create a Makefile<\/span>/;"	I
+cb1-8	README.html	/^<span id="cb1-8"><a href="#cb1-8"><\/a><span class="fu">cmake<\/span> ..\/<\/span>$/;"	I
+cb1-9	README.html	/^<span id="cb1-9"><a href="#cb1-9"><\/a><\/span>$/;"	I
+cb2	README.html	/^<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><spa/;"	I
+cb2-1	README.html	/^<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><spa/;"	I
+cb3	README.html	/^<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><spa/;"	I
+cb3-1	README.html	/^<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><spa/;"	I
+clean	Makefile	/^clean:$/;"	t
+cleaning-the-directory	README.html	/^<h4 id="cleaning-the-directory">Cleaning the directory<\/h4>$/;"	I
+compiling-the-project-using-cmake	README.html	/^<h3 id="compiling-the-project-using-cmake">Compiling the project using CMake<\/h3>$/;"	I
+compilling-and-running-the-project	README.html	/^<h2 id="compilling-and-running-the-project">Compilling and running the project<\/h2>$/;"	I
+completing-the-missing-parts	README.html	/^<h2 id="completing-the-missing-parts">Completing the missing parts<\/h2>$/;"	I
+computeAverages	sampler.cpp	/^void Sampler::computeAverages() {$/;"	f	class:Sampler	typeref:typename:void
+computeDoubleDerivative	WaveFunctions/simplegaussian.cpp	/^double SimpleGaussian::computeDoubleDerivative(std::vector<class Particle*> particles) {$/;"	f	class:SimpleGaussian	typeref:typename:double
+computeLocalEnergy	Hamiltonians/harmonicoscillator.cpp	/^double HarmonicOscillator::computeLocalEnergy(std::vector<Particle*> particles) {$/;"	f	class:HarmonicOscillator	typeref:typename:double
+evaluate	WaveFunctions/simplegaussian.cpp	/^double SimpleGaussian::evaluate(std::vector<class Particle*> particles) {$/;"	f	class:SimpleGaussian	typeref:typename:double
+getEnergy	sampler.h	/^    double getEnergy()          { return m_energy; }$/;"	f	class:Sampler	typeref:typename:double
+getEquilibrationFraction	system.h	/^    double getEquilibrationFraction()   { return m_equilibrationFraction; }$/;"	f	class:System	typeref:typename:double
+getHamiltonian	system.h	/^    class Hamiltonian*              getHamiltonian()    { return m_hamiltonian; }$/;"	f	class:System	typeref:class:System::getWaveFunction class Hamiltonian *
+getNumberOfDimensions	system.h	/^    int getNumberOfDimensions()         { return m_numberOfDimensions; }$/;"	f	class:System	typeref:typename:int
+getNumberOfMetropolisSteps	system.h	/^    int getNumberOfMetropolisSteps()    { return m_numberOfMetropolisSteps; }$/;"	f	class:System	typeref:typename:int
+getNumberOfParameters	WaveFunctions/wavefunction.h	/^    int     getNumberOfParameters() { return m_numberOfParameters; }$/;"	f	class:WaveFunction	typeref:typename:int
+getNumberOfParticles	system.h	/^    int getNumberOfParticles()          { return m_numberOfParticles; }$/;"	f	class:System	typeref:typename:int
+getParameters	WaveFunctions/wavefunction.h	/^    std::vector<double> getParameters() { return m_parameters; }$/;"	f	class:WaveFunction	typeref:typename:std::vector<double>
+getParticles	InitialStates/initialstate.h	/^    std::vector<class Particle*> getParticles() { return m_particles; }$/;"	c	class:InitialState
+getParticles	system.h	/^    std::vector<class Particle*>    getParticles()      { return m_particles; }$/;"	f	class:System	typeref:class:System::getSampler std::vector<class Particle * >
+getPosition	particle.h	/^    std::vector<double> getPosition() { return m_position; }$/;"	f	class:Particle	typeref:typename:std::vector<double>
+getSampler	system.h	/^    class Sampler*                  getSampler()        { return m_sampler; }$/;"	c	class:System
+getWaveFunction	system.h	/^    class WaveFunction*             getWaveFunction()   { return m_waveFunction; }$/;"	c	class:System
+iv	Math/random.cpp	/^long     Random::iv[NTAB];$/;"	m	class:Random	typeref:typename:long[]
+iv	Math/random.h	/^    static long iv[NTAB];$/;"	m	class:Random	typeref:typename:long[]
+iy	Math/random.cpp	/^long     Random::iy = 0;$/;"	m	class:Random	typeref:typename:long
+iy	Math/random.h	/^    static long iy;$/;"	m	class:Random	typeref:typename:long
+m_cumulativeEnergy	sampler.h	/^    double  m_cumulativeEnergy = 0;$/;"	m	class:Sampler	typeref:typename:double
+m_energy	sampler.h	/^    double  m_energy = 0;$/;"	m	class:Sampler	typeref:typename:double
+m_equilibrationFraction	system.h	/^    double                          m_equilibrationFraction = 0.0;$/;"	m	class:System	typeref:typename:double
+m_hamiltonian	system.h	/^    class Hamiltonian*              m_hamiltonian = nullptr;$/;"	m	class:System	typeref:class:Hamiltonian *
+m_initialState	system.h	/^    class InitialState*             m_initialState = nullptr;$/;"	m	class:System	typeref:class:InitialState *
+m_numberOfDimensions	InitialStates/initialstate.h	/^    int m_numberOfDimensions = 0;$/;"	m	class:InitialState	typeref:typename:int
+m_numberOfDimensions	particle.h	/^    int     m_numberOfDimensions = 0;$/;"	m	class:Particle	typeref:typename:int
+m_numberOfDimensions	system.h	/^    int                             m_numberOfDimensions = 0;$/;"	m	class:System	typeref:typename:int
+m_numberOfMetropolisSteps	sampler.h	/^    int     m_numberOfMetropolisSteps = 0;$/;"	m	class:Sampler	typeref:typename:int
+m_numberOfMetropolisSteps	system.h	/^    int                             m_numberOfMetropolisSteps = 0;$/;"	m	class:System	typeref:typename:int
+m_numberOfParameters	WaveFunctions/wavefunction.h	/^    int     m_numberOfParameters = 0;$/;"	m	class:WaveFunction	typeref:typename:int
+m_numberOfParticles	InitialStates/initialstate.h	/^    int m_numberOfParticles = 0;$/;"	m	class:InitialState	typeref:typename:int
+m_numberOfParticles	system.h	/^    int                             m_numberOfParticles = 0;$/;"	m	class:System	typeref:typename:int
+m_omega	Hamiltonians/harmonicoscillator.h	/^    double m_omega = 0;$/;"	m	class:HarmonicOscillator	typeref:typename:double
+m_parameters	WaveFunctions/wavefunction.h	/^    std::vector<double> m_parameters = std::vector<double>();$/;"	m	class:WaveFunction	typeref:typename:std::vector<double>
+m_particles	InitialStates/initialstate.h	/^    std::vector<Particle*> m_particles;\/\/ = std::vector<Particle*>();$/;"	m	class:InitialState	typeref:typename:std::vector<Particle * >
+m_position	particle.h	/^    std::vector<double> m_position = std::vector<double>();$/;"	m	class:Particle	typeref:typename:std::vector<double>
+m_sampler	system.h	/^    class Sampler*                  m_sampler = nullptr;$/;"	m	class:System	typeref:class:Sampler *
+m_stepLength	system.h	/^    double                          m_stepLength = 0.1;$/;"	m	class:System	typeref:typename:double
+m_stepNumber	sampler.h	/^    int     m_stepNumber = 0;$/;"	m	class:Sampler	typeref:typename:int
+m_system	Hamiltonians/hamiltonian.h	/^    class System* m_system = nullptr;$/;"	m	class:Hamiltonian	typeref:class:System *
+m_system	WaveFunctions/wavefunction.h	/^    class System* m_system = nullptr;$/;"	m	class:WaveFunction	typeref:class:System *
+m_system	sampler.h	/^    class System* m_system = nullptr;$/;"	m	class:Sampler	typeref:class:System *
+m_waveFunction	system.h	/^    class WaveFunction*             m_waveFunction = nullptr;$/;"	m	class:System	typeref:class:WaveFunction *
+main	main.cpp	/^int main() {$/;"	f	typeref:typename:int
+metropolisStep	system.cpp	/^bool System::metropolisStep() {$/;"	f	class:System	typeref:typename:bool
+nextDouble	Math/random.cpp	/^double Random::nextDouble()$/;"	f	class:Random	typeref:typename:double
+nextGaussian	Math/random.cpp	/^double Random::nextGaussian(double mean, double standardDeviation) {$/;"	f	class:Random	typeref:typename:double
+nextInt	Math/random.cpp	/^int Random::nextInt(int upperLimit) {$/;"	f	class:Random	typeref:typename:int
+printOutputToTerminal	sampler.cpp	/^void Sampler::printOutputToTerminal() {$/;"	f	class:Sampler	typeref:typename:void
+project_1_fys4411	CMakeLists.txt	/^project(project_1_fys4411)$/;"	p
+runMetropolisSteps	system.cpp	/^void System::runMetropolisSteps(int numberOfMetropolisSteps) {$/;"	f	class:System	typeref:typename:void
+sample	sampler.cpp	/^void Sampler::sample(bool acceptedStep) {$/;"	f	class:Sampler	typeref:typename:void
+seed	Math/random.cpp	/^long     Random::seed = -1;$/;"	m	class:Random	typeref:typename:long
+seed	Math/random.h	/^    static long seed;$/;"	m	class:Random	typeref:typename:long
+setEquilibrationFraction	system.cpp	/^void System::setEquilibrationFraction(double equilibrationFraction) {$/;"	f	class:System	typeref:typename:void
+setHamiltonian	system.cpp	/^void System::setHamiltonian(Hamiltonian* hamiltonian) {$/;"	f	class:System	typeref:typename:void
+setInitialState	system.cpp	/^void System::setInitialState(InitialState* initialState) {$/;"	f	class:System	typeref:typename:void
+setNumberOfDimensions	particle.cpp	/^void Particle::setNumberOfDimensions(int numberOfDimensions) {$/;"	f	class:Particle	typeref:typename:void
+setNumberOfDimensions	system.cpp	/^void System::setNumberOfDimensions(int numberOfDimensions) {$/;"	f	class:System	typeref:typename:void
+setNumberOfMetropolisSteps	sampler.cpp	/^void Sampler::setNumberOfMetropolisSteps(int steps) {$/;"	f	class:Sampler	typeref:typename:void
+setNumberOfParticles	system.cpp	/^void System::setNumberOfParticles(int numberOfParticles) {$/;"	f	class:System	typeref:typename:void
+setPosition	particle.cpp	/^void Particle::setPosition(const std::vector<double> &position) {$/;"	f	class:Particle	typeref:typename:void
+setSeed	Math/random.cpp	/^void Random::setSeed(long seed) {$/;"	f	class:Random	typeref:typename:void
+setStepLength	system.cpp	/^void System::setStepLength(double stepLength) {$/;"	f	class:System	typeref:typename:void
+setWaveFunction	system.cpp	/^void System::setWaveFunction(WaveFunction* waveFunction) {$/;"	f	class:System	typeref:typename:void
+setupInitialState	InitialStates/randomuniform.cpp	/^void RandomUniform::setupInitialState() {$/;"	f	class:RandomUniform	typeref:typename:void
+simple-variational-monte-carlo-solve-for-fys4411	README.html	/^<h1 id="simple-variational-monte-carlo-solve-for-fys4411">Simple Variational Monte Carlo solve f/;"	I
+vmc	CMakeLists.txt	/^add_executable(vmc ${SOURCES})$/;"	t
+windows	README.html	/^<h4 id="windows">Windows<\/h4>$/;"	I

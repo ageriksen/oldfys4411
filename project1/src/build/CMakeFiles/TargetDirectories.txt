@@ -1,0 +1,3 @@
+/home/anders/university/fys4411/project1/src/build/CMakeFiles/rebuild_cache.dir
+/home/anders/university/fys4411/project1/src/build/CMakeFiles/vmc.dir
+/home/anders/university/fys4411/project1/src/build/CMakeFiles/edit_cache.dir
