@@ -1,0 +1,29 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	/a3c87ab5/
+Monte_Carlo	vmcGabriels.cpp	/^Monte_Carlo::Monte_Carlo(Psi* bosonic_system, int N_particles, int dimensions) {$/;"	f	class:Monte_Carlo
+Normaldistribution	vmcGabriels.cpp	/^std::normal_distribution<double> Normaldistribution(0.0, 1.0);$/;"	v	typeref:typename:std::normal_distribution<double>
+UniformNumberGenerator	vmcGabriels.cpp	/^std::uniform_real_distribution<double> UniformNumberGenerator(0.0, 1.0);$/;"	v	typeref:typename:std::uniform_real_distribution<double>
+copy_step	vmcGabriels.cpp	/^void Monte_Carlo::copy_step(Mat* from, Mat* to, int index) {$/;"	f	class:Monte_Carlo	typeref:typename:void
+equilibriation	vmcGabriels.cpp	/^Mat Monte_Carlo::equilibriation(Mat R, int cycles) {$/;"	f	class:Monte_Carlo	typeref:typename:Mat
+get_E_cycles	vmcGabriels.cpp	/^double* Monte_Carlo::get_E_cycles() {$/;"	f	class:Monte_Carlo	typeref:typename:double *
+get_accepted_moves_ratio	vmcGabriels.cpp	/^double Monte_Carlo::get_accepted_moves_ratio() {$/;"	f	class:Monte_Carlo	typeref:typename:double
+get_energy	vmcGabriels.cpp	/^double Monte_Carlo::get_energy() {$/;"	f	class:Monte_Carlo	typeref:typename:double
+get_energy_mean	vmcGabriels.cpp	/^double Monte_Carlo::get_energy_mean() {$/;"	f	class:Monte_Carlo	typeref:typename:double
+get_grad_alpha	vmcGabriels.cpp	/^double Monte_Carlo::get_grad_alpha() {$/;"	f	class:Monte_Carlo	typeref:typename:double
+get_initial_R	vmcGabriels.cpp	/^Mat Monte_Carlo::get_initial_R() {$/;"	f	class:Monte_Carlo	typeref:typename:Mat
+get_rho	vmcGabriels.cpp	/^double* Monte_Carlo::get_rho(int *length_rho) {$/;"	f	class:Monte_Carlo	typeref:typename:double *
+get_variance	vmcGabriels.cpp	/^double Monte_Carlo::get_variance() {$/;"	f	class:Monte_Carlo	typeref:typename:double
+one_body_density	vmcGabriels.cpp	/^Mat Monte_Carlo::one_body_density(Mat R, int cycles) {$/;"	f	class:Monte_Carlo	typeref:typename:Mat
+print_info	vmcGabriels.cpp	/^void Monte_Carlo::print_info() {$/;"	f	class:Monte_Carlo	typeref:typename:void
+random_normal_distribution	vmcGabriels.cpp	/^double Monte_Carlo::random_normal_distribution() {$/;"	f	class:Monte_Carlo	typeref:typename:double
+rd	vmcGabriels.cpp	/^std::random_device rd;$/;"	v	typeref:typename:std::random_device
+sample_energy	vmcGabriels.cpp	/^Mat Monte_Carlo::sample_energy(Mat R, int cycles) {$/;"	f	class:Monte_Carlo	typeref:typename:Mat
+sample_variational_derivatives	vmcGabriels.cpp	/^Mat Monte_Carlo::sample_variational_derivatives(Mat R, int cycles) {$/;"	f	class:Monte_Carlo	typeref:typename:Mat
+set_to_zero	vmcGabriels.cpp	/^void Monte_Carlo::set_to_zero() {$/;"	f	class:Monte_Carlo	typeref:typename:void
+~Monte_Carlo	vmcGabriels.cpp	/^Monte_Carlo::~Monte_Carlo() {$/;"	f	class:Monte_Carlo

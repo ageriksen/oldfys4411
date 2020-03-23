@@ -15,9 +15,6 @@ bool System::metropolisStep(int particle) {
      * at this new position with the one at the old position).
      */
         
-    /*class Particle* testParticle;
-    testParticle->setNumberOfDimensions(m_numberOfDimensions);
-    testParticle->setPosition(m_particles[particle]->getPosition());*/
     //double oldWave = m_waveFunction->evaluate(m_particles);
     double oldWave = m_waveFunction->exponent(m_particles);
     //store change in array

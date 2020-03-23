@@ -61,11 +61,14 @@ void Sampler::printOutputToTerminal() {
     for (int i=0; i < p; i++) {
         cout << " Parameter " << i+1 << " : " << pa.at(i) << endl;
     }
-    cout << endl;
-    cout << "  -- Reults -- " << endl;
-    cout << " Energy    :   " << m_energy << endl;
-    cout << " variance  :   " << m_variance << endl;
-    cout << endl;
+    cout    <<  endl;
+    cout    <<  "  ---- Reults -----    "   << endl;
+    //cout    <<  " values scaled by  :   "   <<  m_N                <<  endl; 
+    cout    <<  " Energy            :   "   <<  m_energy           <<  endl;
+    cout    <<  " variance          :   "   <<  m_variance         <<  endl;
+    //cout    <<  " accepted steps    :   "   <<  m_acceptedsteps    <<  endl;
+    cout    <<  " acceptance ratio  :   "   <<  m_acceptRatio    <<  endl;
+    cout    <<  endl;
 }
 
 void Sampler::computeAverages() {
