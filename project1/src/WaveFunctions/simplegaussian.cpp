@@ -28,6 +28,13 @@ double SimpleGaussian::evaluate(std::vector<class Particle*> particles) {
     return std::exp( -m_parameters[0]*r*r); //gaussian function, in 1 dim and 1 particle
 }
 
+double SimpleGaussian::exponent(std::vector<class Particle*> particles)
+{
+    /*in a lot of cases, probably uneccessary to find the result. Just change the exponent*/
+    double r = particles[0]->getPosition()[0];
+    return -m_parameters[0]*r*r;
+}
+
 double SimpleGaussian::computeDoubleDerivative(std::vector<class Particle*> particles) {
     /* All wave functions need to implement this function, so you need to
      * find the double derivative analytically. Note that by double derivative,

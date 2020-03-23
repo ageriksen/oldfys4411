@@ -1,5 +1,6 @@
 #include "system.h"
 #include <cassert>
+#include <cmath>
 #include "sampler.h"
 #include "particle.h"
 #include "WaveFunctions/wavefunction.h"
@@ -17,7 +18,8 @@ bool System::metropolisStep(int particle) {
     /*class Particle* testParticle;
     testParticle->setNumberOfDimensions(m_numberOfDimensions);
     testParticle->setPosition(m_particles[particle]->getPosition());*/
-    double oldWave = m_waveFunction->evaluate(m_particles);
+    //double oldWave = m_waveFunction->evaluate(m_particles);
+    double oldWave = m_waveFunction->exponent(m_particles);
     //store change in array
     std::vector<double> testStep(m_numberOfDimensions);
     for (int dim = 0; dim < m_numberOfDimensions; dim++)
@@ -26,9 +28,12 @@ bool System::metropolisStep(int particle) {
         testStep[dim] = step;
         m_particles[particle]->adjustPosition( testStep[dim], dim );
     }
-    double newWave = m_waveFunction->evaluate(m_particles);
+    //double newWave = m_waveFunction->evaluate(m_particles);
+    double newWave = m_waveFunction->exponent(m_particles);
     
-    if (Random::nextDouble() <= (newWave*newWave/oldWave/oldWave/oldWave)) // probably wrong, but this is currently only real
+    double ratio = std::exp( 2.*newWave - 2.*oldWave );
+    //if (Random::nextDouble() <= (newWave*newWave/oldWave/oldWave/oldWave)) // probably wrong, but this is currently only real
+    if (Random::nextDouble() <= ratio) // probably wrong, but this is currently only real
     {
         return true;
     }
