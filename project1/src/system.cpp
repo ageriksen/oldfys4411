@@ -16,7 +16,8 @@ bool System::metropolisStep(int particle)
      * at this new position with the one at the old position).
      */
         
-    double oldWave = m_waveFunction->exponent(m_particles);
+    //double oldWave = m_waveFunction->exponent(m_particles);
+    double oldWave = m_waveFunction->evaluate(m_particles);
     std::vector<double> testStep(m_numberOfDimensions);
     for (int dim = 0; dim < m_numberOfDimensions; dim++)
     {
@@ -24,10 +25,13 @@ bool System::metropolisStep(int particle)
         testStep[dim] = step;
         m_particles[particle]->adjustPosition( testStep[dim], dim );
     }
-    double newWave = m_waveFunction->exponent(m_particles);
+    //double newWave = m_waveFunction->exponent(m_particles);
+    double newWave = m_waveFunction->evaluate(m_particles);
     
-    double ratio = std::exp( 2.*newWave - 2.*oldWave );
-    if (Random::nextDouble() <= ratio) 
+    //double ratio = std::exp( 2.*newWave - 2.*oldWave );
+    //if (Random::nextDouble() <= ratio) 
+    double ratio = (newWave*newWave)/(oldWave*oldWave);
+    if( Random::nextDouble() <= ratio )
     {
         return true;
     }
