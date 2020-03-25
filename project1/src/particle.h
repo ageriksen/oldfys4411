@@ -8,6 +8,7 @@ public:
     void adjustPosition(double change, int dimension);
     void setNumberOfDimensions(int numberOfDimensions);
     std::vector<double> getPosition() { return m_position; }
+    double lengthSquared();
 
 private:
     int     m_numberOfDimensions = 0;

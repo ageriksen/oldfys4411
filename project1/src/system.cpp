@@ -8,16 +8,15 @@
 #include "InitialStates/initialstate.h"
 #include "Math/random.h"
 
-bool System::metropolisStep(int particle) {
+bool System::metropolisStep(int particle) 
+{
     /* Perform the actual Metropolis step: Choose a particle at random and
      * change it's position by a random amount, and check if the step is
      * accepted by the Metropolis test (compare the wave function evaluated
      * at this new position with the one at the old position).
      */
         
-    //double oldWave = m_waveFunction->evaluate(m_particles);
     double oldWave = m_waveFunction->exponent(m_particles);
-    //store change in array
     std::vector<double> testStep(m_numberOfDimensions);
     for (int dim = 0; dim < m_numberOfDimensions; dim++)
     {
@@ -25,12 +24,10 @@ bool System::metropolisStep(int particle) {
         testStep[dim] = step;
         m_particles[particle]->adjustPosition( testStep[dim], dim );
     }
-    //double newWave = m_waveFunction->evaluate(m_particles);
     double newWave = m_waveFunction->exponent(m_particles);
     
     double ratio = std::exp( 2.*newWave - 2.*oldWave );
-    //if (Random::nextDouble() <= (newWave*newWave/oldWave/oldWave/oldWave)) // probably wrong, but this is currently only real
-    if (Random::nextDouble() <= ratio) // probably wrong, but this is currently only real
+    if (Random::nextDouble() <= ratio) 
     {
         return true;
     }
@@ -44,7 +41,8 @@ bool System::metropolisStep(int particle) {
     }
 }
 
-void System::runMetropolisSteps(int numberOfMetropolisSteps) {
+void System::runMetropolisSteps(int numberOfMetropolisSteps) 
+{
     
     m_particles                 = m_initialState->getParticles();
     m_sampler                   = new Sampler(this);

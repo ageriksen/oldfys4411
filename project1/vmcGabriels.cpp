@@ -138,15 +138,13 @@ Mat Monte_Carlo::sample_energy(Mat R, int cycles) {
   E_cycles = new double[cycles];         // Cycle-Wise Energy
   MC_cycles = cycles;
   int accepted_moves = 0;
-  double A;															// Acceptance Ratio
-  double r, E_L;
-  //double psi_R;
+  double A;	 //double psi_R;
   // Monte-Carlo Cycles
   for (int i = 0; i < cycles; i++) {
       for (int j = 0; j < N; j++) {
-				random_walk(&R_new, j);
+        random_walk(&R_new, j);
 
-				// Determine whether or not to accept movement
+        // Determine whether or not to accept movement
         A = acceptance_ratio(&R_new, &R, j);
         r = UniformNumberGenerator(gen);
         //printf("(%5.2lf,%5.2lf)", A, r);

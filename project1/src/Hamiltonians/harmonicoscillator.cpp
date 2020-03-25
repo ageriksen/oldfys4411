@@ -14,7 +14,7 @@ HarmonicOscillator::HarmonicOscillator(System* system, double omega) :
     m_omega  = omega;
 }
 
-double HarmonicOscillator::computeLocalEnergy(std::vector<Particle*> particles) {
+double HarmonicOscillator::computeLocalEnergy(std::vector<class Particle*> particles) {
     /* Here, you need to compute the kinetic and potential energies. Note that
      * when using numerical differentiation, the computation of the kinetic
      * energy becomes the same for all Hamiltonians, and thus the code for
@@ -25,11 +25,18 @@ double HarmonicOscillator::computeLocalEnergy(std::vector<Particle*> particles) 
      * m_system->getWaveFunction()...
      */
 
-    double r = m_system->getParticles()[0]->getPosition()[0];
-    //double potentialEnergy = 0;
-    double potentialEnergy = 0.5*m_omega*m_omega*r*r; //assume unitary mass == 1
-    //double kineticEnergy   = 0;
-    double kineticEnergy = m_system->getWaveFunction()->computeDoubleDerivative(m_system->getParticles());
-    return kineticEnergy + potentialEnergy;
+    /*double localEnergy = 0;
+    for( int i=0; i < particles.size(); i++ )
+    {
+        double rr = particles[i]->lengthSquared();
+        double potential = 0.5 * m_omega * m_omega * rr;
+        double kinetic = m_system->getWaveFunction()->laplacian(m_system->getParticles());
+        localEnergy += kinetic + potential;
+    }
+    return localEnergy;*/
+
+    double r = particles[0]->getPosition()[0];
+    double alpha = m_system->getWaveFunction()->getParameters()[0];
+    return 0.5*r*r*( 1 - alpha*alpha*alpha*alpha ) + 0.5*alpha*alpha;
 }
 
