@@ -11,8 +11,8 @@ int main()
     int     nsteps      =   (int) 1e6   ;
     
     //double  omega       =   1.0         ;   // oscillator freq
-    double  alpha       =   0.5         ;   // variational param
-    double  stepsize    =   0.00001       ;   // metropolis steplength
+    double  alpha       =   0.4         ;   // variational param
+    double  stepsize    =   0.0001       ;   // metropolis steplength
     double  equilibr    =   0.1         ;   // amount total steps
                                             // for equilibration
     double oldr, newr;
@@ -28,33 +28,37 @@ int main()
     std::uniform_real_distribution<double> acceptanceDistribution(0, 1);
 
 
-    //oldr = stepsize*( Random::nextDouble() - 0.5 );
-    oldr = stepsize*( uniformDistribution(engine)- 0.5 );
-    oldWf = wf.psi(oldr, alpha);
-    for( int mc = 0; mc < nsteps; mc++ )
+    for( int i = 0; i < maxVariations; i++ )
     {
-        if( mc > nsteps*equilibr)
+        alpha += 0.05;
+        //oldr = stepsize*( Random::nextDouble() - 0.5 );
+        oldr = stepsize*( uniformDistribution(engine)- 0.5 );
+        oldWf = wf.psi(oldr, alpha);
+        for( int mc = 0; mc < nsteps; mc++ )
         {
-            newr = oldr + stepsize*( uniformDistribution(engine)- 0.5 );
-            newWf = wf.psi(newr, alpha);
-            if( uniformDistribution(engine) <= (newWf*newWf)/(oldWf*oldWf) )
+            if( mc > nsteps*equilibr)
             {
-                oldr = newr;
-                oldWf = newWf;
-                accepted ++;
+                newr = oldr + stepsize*( uniformDistribution(engine)- 0.5 );
+                newWf = wf.psi(newr, alpha);
+                if( uniformDistribution(engine) <= (newWf*newWf)/(oldWf*oldWf) )
+                {
+                    oldr = newr;
+                    oldWf = newWf;
+                    accepted ++;
+                }
+                DE = wf.LocalEnergy(oldr, alpha);
+                E += DE;
+                EE += DE*DE;
             }
-            DE = wf.LocalEnergy(oldr, alpha);
-            E += DE;
-            EE += DE*DE;
         }
+        E /= nsteps;
+        EE /= nsteps;
+        double variance = EE - E*E;
+        double acceptratio = (double)accepted/(double)nsteps;
+        double error = std::sqrt( variance/nsteps );
     }
-    E /= nsteps;
-    EE /= nsteps;
-    double variance = EE - E*E;
-    double acceptratio = accepted/nsteps;
-    double error = std::sqrt( variance/nsteps );
 
-    //  ==========================================  \\
+    //  ||==========================================||
     std::cout << std::endl;
     std::cout << "  -- System info -- " << std::endl;
     std::cout << " Number of particles  : " << nparticles << std::endl;
@@ -66,12 +70,11 @@ int main()
     std::cout << " Parameter alpha: " << alpha << std::endl;
     std::cout    <<  std::endl;
     std::cout    <<  "  ---- Reults -----    "   << std::endl;
-    //std::cout    <<  " values scaled by  :   "   <<  m_N                <<  std::endl; 
-    std::cout    <<  " Energy            :   "   <<  E           <<  std::endl;
-    std::cout    <<  " variance          :   "   <<  variance         <<  std::endl;
-    //std::cout    <<  " accepted steps    :   "   <<  m_acceptedsteps    <<  std::endl;
-    std::cout    <<  " acceptance ratio  :   "   <<  acceptratio    <<  std::endl;
-    std::cout    <<  " error             :   "   <<  error    <<  std::endl;
+    std::cout    <<  " Energy            :   "   << E              <<  std::endl;
+    std::cout    <<  " variance          :   "   << variance       <<  std::endl;
+    std::cout    <<  " accepted steps    :   "   << accepted       <<  std::endl;
+    std::cout    <<  " acceptance ratio  :   "   << acceptratio    <<  std::endl;
+    std::cout    <<  " error             :   "   << error          <<  std::endl;
     std::cout    <<  std::endl;
 
 
