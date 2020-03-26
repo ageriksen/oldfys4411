@@ -24,15 +24,14 @@ double SimpleGaussian::evaluate(std::vector<class Particle*> particles) {
      */
 
     double alpha = m_parameters[0];
-    //double wf = 1; 
-    //for( int i = 0; i < particles.size(); i++ )
-    //{
-    //    double rr = particles[i]->lengthSquared();
-    //    wf *= std::exp( -alpha*rr );
-    //}
-    //return wf;
-    double r = particles[0]->getPosition()[0];
-    return std::exp( -0.5*alpha*alpha*r*r );
+    double rr = 0;
+    for( int i = 0; i < particles.size(); i++ )
+    {
+        rr += particles[i]->lengthSquared();
+    }
+    return std::exp( -alpha*rr );
+    //double r = particles[0]->getPosition()[0];
+    //return std::exp( -0.5*alpha*alpha*r*r );
 }
 
 //double SimpleGaussian::exponent(std::vector<class Particle*> particles)
@@ -60,12 +59,15 @@ double SimpleGaussian::laplacian(std::vector<class Particle*> particles) {
      * ( 2*a^2*r^2 - 2*a )*e^( -ar^2 )
      */
     double alpha = m_parameters[0];
-    
+    double dimensions = particles[0]->getPosition().size();
     double derivative = 0;
+    double rr;
     for( int i = 0; i < particles.size(); i++ )
     {
-        double rr = particles[i]->lengthSquared();
-        derivative += ( 2*alpha - 4*alpha*alpha*rr );       
+        rr += particles[i]->lengthSquared();
     }
+    derivative = ( 2*alpha*dimensions*particles.size() - 4*alpha*alpha*rr );       
     return derivative;
 }
+// energy per particle and energy per particle per dimension should be spot on for the non-interacting case. 
+// variational principle, ch. 7 -> 1st example <- answer here you can check your answer

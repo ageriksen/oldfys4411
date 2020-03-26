@@ -21,7 +21,7 @@ bool System::metropolisStep(int particle)
     std::vector<double> testStep(m_numberOfDimensions);
     for (int dim = 0; dim < m_numberOfDimensions; dim++)
     {
-        double step = Random::nextDouble()*m_stepLength;
+        double step = 2*(Random::nextDouble() - 0.5)*m_stepLength;
         testStep[dim] = step;
         m_particles[particle]->adjustPosition( testStep[dim], dim );
     }
@@ -49,30 +49,25 @@ void System::runMetropolisSteps(int numberOfMetropolisSteps)
 {
     
     m_particles                 = m_initialState->getParticles();
-    m_sampler                   = new Sampler(this);
     m_numberOfMetropolisSteps   = numberOfMetropolisSteps;
     m_sampler->setNumberOfMetropolisSteps(numberOfMetropolisSteps);
-
-    for (int i=0; i < numberOfMetropolisSteps; i++) 
+    for( int j = 0; j < variations; j++ )
     {
-        for (int particle = 0; particle < m_numberOfParticles; particle++) 
+        m_sampler                   = new Sampler(this);
+        for (int i=0; i < numberOfMetropolisSteps; i++) 
         {
-            bool acceptedStep = metropolisStep(particle);
-
-            /* Here you should sample the energy (and maybe other things using
-             * the m_sampler instance of the Sampler class. Make sure, though,
-             * to only begin sampling after you have let the system equilibrate
-             * for a while. You may handle this using the fraction of steps which
-             * are equilibration steps; m_equilibrationFraction.
-             */
-            if( i > numberOfMetropolisSteps*m_equilibrationFraction )
+            for (int particle = 0; particle < m_numberOfParticles; particle++) 
             {
-                m_sampler->sample(acceptedStep);
-            }
-        }
-    }
-    m_sampler->computeAverages();
-    m_sampler->printOutputToTerminal();
+                bool acceptedStep = metropolisStep(particle);
+                if( i > numberOfMetropolisSteps*m_equilibrationFraction )
+                {
+                    m_sampler->sample(acceptedStep);
+                }
+            }// particles
+        }//Metropolis steps
+        m_sampler->computeAverages();
+        m_sampler->printOutputToTerminal();
+    }//variations
 }
 
 void System::setNumberOfParticles(int numberOfParticles) {

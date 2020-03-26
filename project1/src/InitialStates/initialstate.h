@@ -12,5 +12,6 @@ protected:
     std::vector<Particle*> m_particles;// = std::vector<Particle*>();
     int m_numberOfDimensions = 0;
     int m_numberOfParticles = 0;
+    double m_stepLength = 0;
 };
 

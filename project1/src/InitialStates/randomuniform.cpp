@@ -11,11 +11,13 @@ using std::endl;
 
 RandomUniform::RandomUniform(System*    system,
                              int        numberOfDimensions,
-                             int        numberOfParticles)  :
+                             int        numberOfParticles,
+                             double     stepLength)  :
         InitialState(system) {
     assert(numberOfDimensions > 0 && numberOfParticles > 0);
     m_numberOfDimensions = numberOfDimensions;
     m_numberOfParticles  = numberOfParticles;
+    m_stepLength = stepLength;
 
     /* The Initial State class is in charge of everything to do with the
      * initialization of the system; this includes determining the number of
@@ -40,7 +42,7 @@ void RandomUniform::setupInitialState() {
              * particles are placed in other configurations.
              */
             //position.push_back( m_system->getUniform() );//uniformDistribution(m_engine) );
-            position.push_back( Random::nextDouble() );
+            position.push_back( 2*(Random::nextDouble() - 0.5)*m_stepLength );
         }
         m_particles.push_back(new Particle());
         m_particles.at(i)->setNumberOfDimensions(m_numberOfDimensions);

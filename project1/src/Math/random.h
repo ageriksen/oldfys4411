@@ -1,45 +1,37 @@
-#include "random.h"
-#include <cmath>
+/*
+ This is based on the ran1-generator from lib.cpp (see http://www.uio.no/studier/emner/matnat/fys/FYS3150/h14/index.html )
+     ** The function
+     **           ran1()
+     ** is an "Minimal" random number generator of Park and Miller
+     ** (see Numerical recipe page 280) with Bays-Durham shuffle and
+     ** added safeguards. Call with idum a negative integer to initialize;
+     ** thereafter, do not alter idum between sucessive deviates in a
+     ** sequence. RNMX should approximate the largest floating point value
+     ** that is less than 1.
+     ** The function returns a uniform deviate between 0.0 and 1.0
+     ** (exclusive of end-point values).
+*/
 
-long     Random::iy = 0;
-long     Random::iv[NTAB];
-long     Random::seed = -1;
-void Random::setSeed(long seed) {
-    Random::seed = seed;
-}
+#pragma once
 
-double Random::nextGaussian(double mean, double standardDeviation) {
-    double standardNormalRandomNumber = sqrt( -2.0*log(1.0 - nextDouble()) ) * cos( 6.283185307 * nextDouble() );
-    return standardDeviation*standardNormalRandomNumber + mean;
-}
+#define IA 16807
+#define IM 2147483647
+#define AM (1.0/IM)
+#define IQ 127773
+#define IR 2836
+#define NTAB 32
+#define NDIV (1+(IM-1)/NTAB)
+#define EPS 1.2e-7
+#define RNMX (1.0-EPS)
 
-int Random::nextInt(int upperLimit) {
-    return std::floor(nextDouble() * upperLimit);
-}
-
-double Random::nextDouble()
-{
-    int             j;
-    long            k;
-    double          temp;
-    if (Random::seed <= 0 || !iy) {
-        if (-(Random::seed) < 1) Random::seed=1;
-        else Random::seed = -(Random::seed);
-        for(j = NTAB + 7; j >= 0; j--) {
-            k     = (Random::seed)/IQ;
-            Random::seed = IA*(Random::seed - k*IQ) - IR*k;
-            if(Random::seed < 0) Random::seed += IM;
-            if(j < NTAB) iv[j] = Random::seed;
-        }
-        iy = iv[0];
-    }
-    k     = (Random::seed)/IQ;
-    Random::seed = IA*(Random::seed - k*IQ) - IR*k;
-    if(Random::seed < 0) Random::seed += IM;
-    j     = iy/NDIV;
-    iy    = iv[j];
-    iv[j] = Random::seed;
-    if((temp=AM*iy) > RNMX) return RNMX;
-    else return temp;
-}
+class Random {
+public:
+    static long iy;
+    static long iv[NTAB];
+    static long seed;
+    static int    nextInt(int upperLimit);
+    static double nextDouble();
+    static double nextGaussian(double mean, double standardDeviation);
+    static void setSeed(long seed);
+};
 
