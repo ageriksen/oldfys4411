@@ -25,7 +25,7 @@ double SimpleGaussian::evaluate(std::vector<class Particle*> particles) {
 
     double alpha = m_parameters[0];
     double rr = 0;
-    for( int i = 0; i < particles.size(); i++ )
+    for( int i = 0; i < m_system->getNumberOfDimensions(); i++ )
     {
         rr += particles[i]->lengthSquared();
     }
@@ -62,7 +62,7 @@ double SimpleGaussian::laplacian(std::vector<class Particle*> particles) {
     double dimensions = particles[0]->getPosition().size();
     double derivative = 0;
     double rr = 0;
-    for( int i = 0; i < particles.size(); i++ )
+    for( int i = 0; i < m_system->getNumberOfDimensions(); i++ )
     {
         rr += particles[i]->lengthSquared();
     }
