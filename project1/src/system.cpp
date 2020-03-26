@@ -39,7 +39,7 @@ bool System::metropolisStep(int particle)
     {
         for (int dim = 0; dim <m_numberOfDimensions; dim++)
         {
-            m_particles[dim]->adjustPosition( -1*testStep[dim], dim );
+            m_particles[particle]->adjustPosition( -1*testStep[dim], dim );
         }
         return false;
     }

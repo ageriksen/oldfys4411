@@ -13,19 +13,20 @@ using namespace std;
 
 
 int main() {
-    int numberOfDimensions  = 1;
-    int numberOfParticles   = 1;
+    int numberOfDimensions  = 3;
+    int numberOfParticles   = 3;
     int numberOfSteps       = (int) 1e6;
     double omega            = 1.0;          // Oscillator frequency.
-    double alpha            = 0.5;          // Variational parameter.
+    double alpha            = 0.3;          // Variational parameter.
     double stepLength       = 0.5;          // Metropolis step length.
     double equilibration    = 0;//0.1;          // Amount of the total steps used
+    double spread = 1;
     // for equilibration.
 
     System* system = new System();
     system->setHamiltonian              (new HarmonicOscillator(system, omega));
     system->setWaveFunction             (new SimpleGaussian(system, alpha));
-    system->setInitialState             (new RandomUniform(system, numberOfDimensions, numberOfParticles, stepLength));
+    system->setInitialState             (new RandomUniform(system, numberOfDimensions, numberOfParticles, spread));
     system->setEquilibrationFraction    (equilibration);
     system->setStepLength               (stepLength);
     system->runMetropolisSteps          (numberOfSteps);

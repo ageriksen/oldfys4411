@@ -66,7 +66,7 @@ double SimpleGaussian::laplacian(std::vector<class Particle*> particles) {
     {
         rr += particles[i]->lengthSquared();
     }
-    derivative = ( 2*alpha*dimensions*particles.size() - 4*alpha*alpha*rr );       
+    derivative = ( -2*alpha*dimensions*particles.size() + 4*alpha*alpha*rr );       
     return derivative;
 }
 // energy per particle and energy per particle per dimension should be spot on for the non-interacting case. 

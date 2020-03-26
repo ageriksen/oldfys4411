@@ -62,12 +62,12 @@ void Sampler::printOutputToTerminal() {
         cout << " Parameter " << i+1 << " : " << pa.at(i) << endl;
     }
     cout    <<  endl;
-    cout    <<  "  ---- Reults -----    "   << endl;
-    //cout    <<  " values scaled by  :   "   <<  m_N                <<  endl; 
-    cout    <<  " Energy            :   "   <<  m_energy           <<  endl;
-    cout    <<  " variance          :   "   <<  m_variance         <<  endl;
-    //cout    <<  " accepted steps    :   "   <<  m_acceptedsteps    <<  endl;
-    cout    <<  " acceptance ratio  :   "   <<  m_acceptRatio    <<  endl;
+    cout    <<  "       ---- Reults -----           "   << endl;
+    cout    <<  " Energy                        :   "   <<  m_energy        <<  endl;
+    cout    <<  " Energy/particle               :   "   <<  m_energy/np     <<  endl;
+    cout    <<  " Energy/(particle*dimension)   :   "   <<  m_energy/np/nd  <<  endl;
+    cout    <<  " variance                      :   "   <<  m_variance      <<  endl;
+    cout    <<  " acceptance ratio              :   "   <<  m_acceptRatio   <<  endl;
     cout    <<  endl;
 }
 
@@ -75,7 +75,7 @@ void Sampler::computeAverages() {
     /* Compute the averages of the sampled quantities. You need to think
      * thoroughly through what is written here currently; is this correct?
      */
-    m_N = (m_system->getNumberOfMetropolisSteps()*m_system->getNumberOfParticles());
+    m_N = m_stepNumber;
     m_energy = m_cumulativeEnergy   / m_N;
     m_energy2 = m_cumulativeEnergy2 / m_N;
     m_acceptRatio = m_acceptedSteps / m_N;
