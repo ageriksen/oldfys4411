@@ -25,15 +25,14 @@ double HarmonicOscillator::computeLocalEnergy(std::vector<class Particle*> parti
      * m_system->getWaveFunction()...
      */
 
-    double localEnergy = 0;
+    double rr = 0;
     for( int i=0; i < particles.size(); i++ )
     {
-        double rr = particles[i]->lengthSquared();
-        double potential = 0.5 * m_omega * m_omega * rr;
-        double kinetic = m_system->getWaveFunction()->laplacian(m_system->getParticles());
-        localEnergy += kinetic + potential;
+        rr += particles[i]->lengthSquared();
     } // move kinetic out off loop
-    return localEnergy;
+    double potential = 0.5 * m_omega * m_omega * rr;
+    double kinetic = m_system->getWaveFunction()->laplacian(m_system->getParticles());
+    return kinetic + potential;
 
     //double r = particles[0]->getPosition()[0];
     //double alpha = m_system->getWaveFunction()->getParameters()[0];

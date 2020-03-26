@@ -61,7 +61,7 @@ double SimpleGaussian::laplacian(std::vector<class Particle*> particles) {
     double alpha = m_parameters[0];
     double dimensions = particles[0]->getPosition().size();
     double derivative = 0;
-    double rr;
+    double rr = 0;
     for( int i = 0; i < particles.size(); i++ )
     {
         rr += particles[i]->lengthSquared();
