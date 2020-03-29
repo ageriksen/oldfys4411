@@ -1,6 +1,8 @@
 #include <iostream>
 #include <cmath>
 #include <vector>
+
+
 #include "sampler.h"
 #include "system.h"
 #include "particle.h"
@@ -69,6 +71,7 @@ void Sampler::printOutputToTerminal() {
     cout    <<  " variance                      :   "   <<  m_variance      <<  endl;
     cout    <<  " acceptance ratio              :   "   <<  m_acceptRatio   <<  endl;
     cout    <<  endl;
+    cout    << "checking directories    "   <<  std::endl;
 }
 
 void Sampler::computeAverages() {
@@ -81,4 +84,54 @@ void Sampler::computeAverages() {
     m_acceptRatio = m_acceptedSteps / m_N;
     
     m_variance = ( m_energy2 - m_energy*m_energy);
+}
+
+void Sampler::writeresults()
+{
+    /*
+     * # comment
+     * % comment 
+     * header1 header2 math_expression 
+     * {val}    {val}   {val}
+     */
+    std::vector<double> param = m_system->getWaveFunction()->getParameters();
+
+    std::ofstream ofile;
+    std::string result, newdir; 
+    std::string directory = "data";
+    std::string resultfile = "metropolisresult_alpha_"+std::to_string(param[0])+".txt";
+
+    if( fileexists(directory) && fileexists(directory+"/"+resultfile) )
+    {
+        if(!ofile.is_open()) ofile.open(directory+"/"+resultfile, std::ios::app);
+        result = std::to_string(param[0])
+            +"\t"+std::to_string(m_energy)
+            /*+"\t"+std::to_string("placeholder")*/
+            +"\tplaceholder"
+            +"\t"+std::to_string(m_variance)
+            /*+"\t"+std::to_string("placeholder");*/
+            +"\tplaceholder";
+        ofile << result+"\n";
+    } else {
+        if( !fileexists(directory)) 
+        {
+            newdir = "./" + directory; 
+            if( mkdir(newdir.c_str(), S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH) < 0 )
+            { std::cout << "could not create "+newdir+"." << std::endl; }
+        }
+        if( !fileexists(directory+"/"+resultfile) )
+        {
+            std::string header = "alpha\tenergy\texact-energy\tvariance\texact-variance\n";
+            ofile.open(directory+"/"+resultfile, std::ios::ate);
+            ofile   <<  header; ofile.close();
+        }
+    }
+    
+    
+}
+
+inline bool Sampler::fileexists( const std::string& name)
+{
+    struct stat buffer;
+    return (stat (name.c_str(), &buffer) == 0);
 }

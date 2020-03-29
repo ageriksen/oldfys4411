@@ -13,9 +13,9 @@ using namespace std;
 
 
 int main() {
-    int numberOfDimensions  = 3;
-    int numberOfParticles   = 3;
-    int numberOfSteps       = (int) 1e6;
+    int numberOfDimensions  = 1;
+    int numberOfParticles   = 1;
+    int numberOfSteps       = (int) 1e4;
     double omega            = 1.0;          // Oscillator frequency.
     double alpha            = 0.3;          // Variational parameter.
     double stepLength       = 0.5;          // Metropolis step length.

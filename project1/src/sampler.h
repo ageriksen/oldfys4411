@@ -1,5 +1,11 @@
 #pragma once
 
+
+#include <sys/stat.h>
+#include <unistd.h>
+#include <string>
+#include <fstream>
+
 class Sampler {
 public:
     Sampler(class System* system);
@@ -8,6 +14,9 @@ public:
     void printOutputToTerminal();
     void computeAverages();
     double getEnergy()          { return m_energy; }
+
+    void writeresults();
+    bool fileexists( const std::string& );
 
 private:
     int     m_numberOfMetropolisSteps = 0;
