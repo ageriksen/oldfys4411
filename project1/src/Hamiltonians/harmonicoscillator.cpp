@@ -26,7 +26,7 @@ double HarmonicOscillator::computeLocalEnergy(std::vector<class Particle*> parti
      */
 
     double rr = 0;
-    for( int i=0; i < particles.size(); i++ )
+    for( int i=0; i < m_system->getNumberOfParticles(); i++ )
     {
         rr += particles[i]->lengthSquared();
     } // move kinetic out off loop

@@ -5,7 +5,7 @@ Particle::Particle() {
 }
 
 void Particle::setPosition(const std::vector<double> &position) {
-    assert(position.size() == m_numberOfDimensions);
+    assert((int)position.size() == m_numberOfDimensions);
     m_position = position;
 }
 
@@ -20,7 +20,7 @@ void Particle::setNumberOfDimensions(int numberOfDimensions) {
 double Particle::lengthSquared()
 {
     double rr = 0;
-    for( int i = 0; i < m_position.size(); i++ )
+    for( int i = 0; i < (int)m_position.size(); i++ )
     {
         rr += m_position[i]*m_position[i];
     }
