@@ -10,8 +10,6 @@ public:
     virtual double evaluate(std::vector<class Particle*> particles) = 0;
     //virtual double exponent(std::vector<class Particle*> particles) = 0;
     virtual double laplacian(std::vector<class Particle*> particles) = 0;
-    void changeParameter(int i, double change) { m_parameters[i]+=change;}
-    void setParameter(int i, double parameter) { if(i<m_numberOfParameters) m_parameters[i]=parameter;}
 
 protected:
     int     m_numberOfParameters = 0;
