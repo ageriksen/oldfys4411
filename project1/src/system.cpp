@@ -1,6 +1,7 @@
 #include "system.h"
 #include <cassert>
 #include <cmath>
+#include <iostream>
 #include "sampler.h"
 #include "particle.h"
 #include "WaveFunctions/wavefunction.h"
@@ -67,10 +68,17 @@ void System::runMetropolisSteps(int numberOfMetropolisSteps)
                 }
             }// particles
         }//Metropolis steps
+        //m_timer->newTime();
         m_sampler->computeAverages();
         m_sampler->printOutputToTerminal();
+        
         m_sampler->writeResults();
-    }
+    }//variable variations
+    
+    m_timer->newTime();
+    std::chrono::duration<double> time = m_timer->timeDifference(0, 1);
+    std::cout    <<  "   ------   VMC finished    ------"   << std::endl;
+    std::cout    <<  " time spent:   "   <<  (double)time.count()<<"s"<<  std::endl;
 }
 
 void System::setNumberOfParticles(int numberOfParticles) {

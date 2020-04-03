@@ -24,9 +24,9 @@ int main() {
     double spread = 1;
     // for equilibration.
 
-    std::chrono::steady_clock::time_point programStart = std::chrono::steady_clock::now();
 
-    System* system = new System();
+    Timer* timer = new Timer();
+    System* system = new System(timer);
 
     system->setHamiltonian              (new HarmonicOscillator(system, omega));
     system->setWaveFunction             (new SimpleGaussian(system, alpha));

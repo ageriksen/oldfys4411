@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cmath>
 #include <vector>
+#include <chrono>
 
 
 #include "sampler.h"
@@ -50,6 +51,7 @@ void Sampler::printOutputToTerminal() {
     int     p  = m_system->getWaveFunction()->getNumberOfParameters();
     double  ef = m_system->getEquilibrationFraction();
     std::vector<double> pa = m_system->getWaveFunction()->getParameters();
+    //std::chrono::duration<double> time = m_system->getTimer()->timeDifference(0, 1);
 
     cout << endl;
     cout << "  -- System info -- " << endl;
@@ -65,6 +67,7 @@ void Sampler::printOutputToTerminal() {
     }
     cout    <<  endl;
     cout    <<  "       ---- Reults -----           "   << endl;
+    //cout    <<  " time spent                    :   "   <<  (double)time.count()<<"s"<<  endl;
     cout    <<  " Energy                        :   "   <<  m_energy        <<  endl;
     cout    <<  " Energy/particle               :   "   <<  m_energy/np     <<  endl;
     cout    <<  " Energy/(particle*dimension)   :   "   <<  m_energy/np/nd  <<  endl;
