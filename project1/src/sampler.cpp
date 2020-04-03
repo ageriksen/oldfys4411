@@ -86,7 +86,7 @@ void Sampler::computeAverages() {
     m_variance = ( m_energy2 - m_energy*m_energy);
 }
 
-void Sampler::writeresults()
+void Sampler::writeResults()
 {
     /*
      * # comment
@@ -99,7 +99,8 @@ void Sampler::writeresults()
     std::ofstream ofile;
     std::string result, newdir; 
     std::string directory = "data";
-    std::string resultfile = "metropolisresult_alpha_"+std::to_string(param[0])+".txt";
+    std::string resultfile = "N_"+std::to_string(m_system->getNumberOfParticles())
+        +   "D_"+std::to_string(m_system->getNumberOfDimensions()) + ".txt";
 
     if( fileexists(directory) && fileexists(directory+"/"+resultfile) )
     {

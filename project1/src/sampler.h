@@ -15,7 +15,7 @@ public:
     void computeAverages();
     double getEnergy()          { return m_energy; }
 
-    void writeresults();
+    void writeResults();
     bool fileexists( const std::string& );
 
 private:

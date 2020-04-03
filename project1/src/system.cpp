@@ -48,23 +48,29 @@ bool System::metropolisStep(int particle)
 void System::runMetropolisSteps(int numberOfMetropolisSteps) 
 {
     
-    m_particles                 = m_initialState->getParticles();
-    m_numberOfMetropolisSteps   = numberOfMetropolisSteps;
-    m_sampler                   = new Sampler(this);
-    m_sampler->setNumberOfMetropolisSteps(numberOfMetropolisSteps);
-    for (int i=0; i < numberOfMetropolisSteps; i++) 
+    for( int variation = 0; variation < 6; variation++ )
     {
-        for (int particle = 0; particle < m_numberOfParticles; particle++) 
+        m_particles                 = m_initialState->getParticles();
+        m_numberOfMetropolisSteps   = numberOfMetropolisSteps;
+        m_sampler                   = new Sampler(this);
+        m_sampler->setNumberOfMetropolisSteps(numberOfMetropolisSteps);
+
+        m_waveFunction->changeParameter((double)0.05);
+        for (int i=0; i < numberOfMetropolisSteps; i++) 
         {
-            bool acceptedStep = metropolisStep(particle);
-            if( i > numberOfMetropolisSteps*m_equilibrationFraction )
+            for (int particle = 0; particle < m_numberOfParticles; particle++) 
             {
-                m_sampler->sample(acceptedStep);
-            }
-        }// particles
-    }//Metropolis steps
-    m_sampler->computeAverages();
-    m_sampler->printOutputToTerminal();
+                bool acceptedStep = metropolisStep(particle);
+                if( i > numberOfMetropolisSteps*m_equilibrationFraction )
+                {
+                    m_sampler->sample(acceptedStep);
+                }
+            }// particles
+        }//Metropolis steps
+        m_sampler->computeAverages();
+        m_sampler->printOutputToTerminal();
+        m_sampler->writeResults();
+    }
 }
 
 void System::setNumberOfParticles(int numberOfParticles) {
