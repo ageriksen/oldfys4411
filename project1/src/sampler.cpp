@@ -98,37 +98,27 @@ void Sampler::writeResults()
 
     std::ofstream ofile;
     std::string result, newdir; 
-    std::string directory = "data";
-    std::string resultfile = "N_"+std::to_string(m_system->getNumberOfParticles())
-        +   "D_"+std::to_string(m_system->getNumberOfDimensions()) + ".txt";
+    std::string dir = "data";
+    newdir = "./" + dir; 
+    std::string resultfile = "Npart_"+std::to_string(m_system->getNumberOfParticles())
+            +   "Ndim_"+std::to_string(m_system->getNumberOfDimensions())+".txt";
+    std::string header = "\\alpha\tE\tE exact\t\\sigma\^2\t\\sigma\^2 exact\n";
+    std::string error = "could not create "+newdir+".";
+    result = std::to_string(param[0])
+        +"\t"+std::to_string(m_energy)
+        /*+"\t"+std::to_string("placeholder")*/
+        +"\tplaceholder"
+        +"\t"+std::to_string(m_variance)
+        /*+"\t"+std::to_string("placeholder");*/
+        +"\tplaceholder";
+    
 
-    if( fileexists(directory) && fileexists(directory+"/"+resultfile) )
-    {
-        if(!ofile.is_open()) ofile.open(directory+"/"+resultfile, std::ios::app);
-        result = std::to_string(param[0])
-            +"\t"+std::to_string(m_energy)
-            /*+"\t"+std::to_string("placeholder")*/
-            +"\tplaceholder"
-            +"\t"+std::to_string(m_variance)
-            /*+"\t"+std::to_string("placeholder");*/
-            +"\tplaceholder";
-        ofile << result+"\n";
-    } else {
-        if( !fileexists(directory)) 
-        {
-            newdir = "./" + directory; 
-            if( mkdir(newdir.c_str(), S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH) < 0 )
-            { std::cout << "could not create "+newdir+"." << std::endl; }
-        }
-        if( !fileexists(directory+"/"+resultfile) )
-        {
-            std::string header = "alpha\tenergy\texact-energy\tvariance\texact-variance\n";
-            ofile.open(directory+"/"+resultfile, std::ios::ate);
-            ofile   <<  header; ofile.close();
-        }
-    }
-    
-    
+    if(!fileexists(dir) && mkdir(newdir.c_str(), S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH)<0) std::cout << error << std::endl;
+    if(!fileexists(dir+"/"+resultfile)){ofile.open(dir+"/"+resultfile, std::ios::ate); ofile<<header; ofile.close();}
+
+    if(!ofile.is_open()) ofile.open(dir+"/"+resultfile, std::ios::app);
+    ofile << result+"\n";
+
 }
 
 inline bool Sampler::fileexists( const std::string& name)
