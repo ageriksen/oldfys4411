@@ -102,7 +102,7 @@ void Sampler::writeResults()
     newdir = "./" + dir; 
     std::string resultfile = "Npart_"+std::to_string(m_system->getNumberOfParticles())
             +   "Ndim_"+std::to_string(m_system->getNumberOfDimensions())+".txt";
-    std::string header = "\\alpha\tE\tE exact\t\\sigma\^2\t\\sigma\^2 exact\n";
+    std::string header = "\\alpha\tE\tE exact\t\\sigma^2\t\\sigma^2 exact\n";
     std::string error = "could not create "+newdir+".";
     result = std::to_string(param[0])
         +"\t"+std::to_string(m_energy)

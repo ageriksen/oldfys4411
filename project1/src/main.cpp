@@ -1,4 +1,5 @@
 #include <iostream>
+#include <chrono>
 #include "system.h"
 #include "particle.h"
 #include "WaveFunctions/wavefunction.h"
@@ -23,12 +24,16 @@ int main() {
     double spread = 1;
     // for equilibration.
 
+    std::chrono::steady_clock::time_point programStart = std::chrono::steady_clock::now();
+
     System* system = new System();
+
     system->setHamiltonian              (new HarmonicOscillator(system, omega));
     system->setWaveFunction             (new SimpleGaussian(system, alpha));
     system->setInitialState             (new RandomUniform(system, numberOfDimensions, numberOfParticles, spread));
     system->setEquilibrationFraction    (equilibration);
     system->setStepLength               (stepLength);
+
     system->runMetropolisSteps          (numberOfSteps);
     return 0;
 }
