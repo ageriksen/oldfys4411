@@ -52,26 +52,19 @@ void System::runMetropolisSteps(int numberOfMetropolisSteps)
     m_numberOfMetropolisSteps   = numberOfMetropolisSteps;
     m_sampler                   = new Sampler(this);
     m_sampler->setNumberOfMetropolisSteps(numberOfMetropolisSteps);
-
-    for( int var = 0; var < 9; var++ )
+    for (int i=0; i < numberOfMetropolisSteps; i++) 
     {
-        m_waveFunction->changeParameter(0, 0.05);
-        for (int i=0; i < numberOfMetropolisSteps; i++) 
+        for (int particle = 0; particle < m_numberOfParticles; particle++) 
         {
-            for (int particle = 0; particle < m_numberOfParticles; particle++) 
+            bool acceptedStep = metropolisStep(particle);
+            if( i > numberOfMetropolisSteps*m_equilibrationFraction )
             {
-                bool acceptedStep = metropolisStep(particle);
-                if( i > numberOfMetropolisSteps*m_equilibrationFraction )
-                {
-                    m_sampler->sample(acceptedStep);
-                }
-            }// particles
-        }//Metropolis steps
-
-        m_sampler->computeAverages();
-        m_sampler->printOutputToTerminal();
-        m_sampler->writeresults();
-    }
+                m_sampler->sample(acceptedStep);
+            }
+        }// particles
+    }//Metropolis steps
+    m_sampler->computeAverages();
+    m_sampler->printOutputToTerminal();
 }
 
 void System::setNumberOfParticles(int numberOfParticles) {
