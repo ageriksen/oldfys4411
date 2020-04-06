@@ -12,6 +12,7 @@ HarmonicOscillator::HarmonicOscillator(System* system, double omega) :
         Hamiltonian(system) {
     assert(omega > 0);
     m_omega  = omega;
+    m_name = "harmonicoscillator";
 }
 
 double HarmonicOscillator::computeLocalEnergy(std::vector<class Particle*> particles) {
@@ -39,3 +40,8 @@ double HarmonicOscillator::computeLocalEnergy(std::vector<class Particle*> parti
     //return 0.5*r*r*( 1 - alpha*alpha*alpha*alpha ) + 0.5*alpha*alpha;
 }
 
+double HarmonicOscillator::exactEnergy()
+{
+    double alpha = m_system->getWaveFunction()->getParameters()[0];
+    return 4.*alpha*alpha - 2.*alpha;
+}
