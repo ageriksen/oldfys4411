@@ -1,6 +1,7 @@
 #include "simplegaussian.h"
 #include <cmath>
 #include <cassert>
+#include <iostream>
 #include "wavefunction.h"
 #include "../system.h"
 #include "../particle.h"
@@ -25,7 +26,7 @@ double SimpleGaussian::evaluate(std::vector<class Particle*> particles) {
 
     double alpha = m_parameters[0];
     double rr = 0;
-    for( int i = 0; i < m_system->getNumberOfDimensions(); i++ )
+    for( int i = 0; i < m_system->getNumberOfParticles(); i++ )
     {
         rr += particles[i]->lengthSquared();
     }
@@ -58,16 +59,21 @@ double SimpleGaussian::laplacian(std::vector<class Particle*> particles) {
      *  
      * ( 2*a^2*r^2 - 2*a )*e^( -ar^2 )
      */
+
+
     double alpha = m_parameters[0];
-    double dimensions = particles[0]->getPosition().size();
+    //double Ndim = particles[0]->getPosition().size();
+    double Ndim = m_system->getNumberOfDimensions();
+    double Npart = m_system->getNumberOfParticles();
     double derivative = 0;
     double rr = 0;
-    for( int i = 0; i < m_system->getNumberOfDimensions(); i++ )
+    for( int i = 0; i < (int)Npart; i++ )
     {
         rr += particles[i]->lengthSquared();
     }
-    derivative = ( -2*alpha*dimensions*particles.size() + 4*alpha*alpha*rr );       
+    derivative = ( -2*alpha*Ndim*Npart + 4*alpha*alpha*rr );       
     return derivative;
+    
 }
 // energy per particle and energy per particle per dimension should be spot on for the non-interacting case. 
 // variational principle, ch. 7 -> 1st example <- answer here you can check your answer

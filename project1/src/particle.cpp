@@ -20,7 +20,7 @@ void Particle::setNumberOfDimensions(int numberOfDimensions) {
 double Particle::lengthSquared()
 {
     double rr = 0;
-    for( int i = 0; i < (int)m_position.size(); i++ )
+    for( int i = 0; i < m_numberOfDimensions; i++ )
     {
         rr += m_position[i]*m_position[i];
     }

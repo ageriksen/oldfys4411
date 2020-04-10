@@ -34,14 +34,17 @@ void Sampler::sample(bool acceptedStep) {
     /* Here you should sample all the interesting things you want to measure.
      * Note that there are (way) more than the single one here currently.
      */
+
     double localEnergy = m_system->getHamiltonian()->
                          computeLocalEnergy(m_system->getParticles());
+
     m_cumulativeEnergy  += localEnergy;
 
     m_cumulativeEnergy2  += localEnergy*localEnergy;
     m_acceptedSteps += acceptedStep;
 
     m_stepNumber++;
+
 }
 
 void Sampler::printOutputToTerminal() {
@@ -98,22 +101,26 @@ void Sampler::writeResults()
      * {val}    {val}   {val}
      */
     std::vector<double> param = m_system->getWaveFunction()->getParameters();
+    int MCC = std::log10((int)m_system->getNumberOfMetropolisSteps());
 
     std::ofstream ofile;
     std::string result, newdir; 
     std::string dir = "data";
     newdir = "./" + dir; 
-    std::string resultfile = "Npart_"+std::to_string(m_system->getNumberOfParticles())
-            +   "Ndim_"+std::to_string(m_system->getNumberOfDimensions())+".txt";
-    std::string header = "\\alpha\tE\tE exact\t\\sigma^2\t\\sigma^2 exact\n";
+    std::string resultfile = 
+                "1e"+std::to_string(MCC)+"MC_"
+            +   std::to_string(m_system->getNumberOfParticles())+"part_"
+            +   std::to_string(m_system->getNumberOfDimensions())+"dim"+".txt";
+    //std::string header = "\\alpha\tE\tE exact\t\\sigma^2\t\\sigma^2 exact\n";
+    std::string header = "\\alpha\tE\t\\sigma^2\n";
     std::string error = "could not create "+newdir+".";
     result = std::to_string(param[0])
         +"\t"+std::to_string(m_energy)
         /*+"\t"+std::to_string("placeholder")*/
-        +"\tplaceholder"
+        /*+"\tplaceholder"*/
         +"\t"+std::to_string(m_variance)
         /*+"\t"+std::to_string("placeholder");*/
-        +"\tplaceholder";
+        /*+"\tplaceholder"*/;
     
 
     if(!fileexists(dir) && mkdir(newdir.c_str(), S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH)<0) std::cout << error << std::endl;
@@ -122,6 +129,24 @@ void Sampler::writeResults()
     if(!ofile.is_open()) ofile.open(dir+"/"+resultfile, std::ios::app);
     ofile << result+"\n";
 
+}
+
+void Sampler::writeTime(double time)
+{
+    int MCC = std::log10(m_system->getNumberOfMetropolisSteps());
+    std::ofstream ofile;
+    std::string s_time = std::to_string(time);
+    std::string dir = "data";
+    std::string resultfile = 
+                "1e"+std::to_string(MCC)+"MC_"
+            +   std::to_string(m_system->getNumberOfParticles())+"part_"
+            +   std::to_string(m_system->getNumberOfDimensions())+"dim"+".txt";
+    if(fileexists(dir+"/"+resultfile))
+    {
+        ofile.open(dir+"/"+resultfile, std::ios::app);
+        ofile << "time(s)\t"+s_time+"\n";
+        ofile.close();
+    }
 }
 
 inline bool Sampler::fileexists( const std::string& name)

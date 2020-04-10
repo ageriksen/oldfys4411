@@ -5,7 +5,7 @@
 
 class System {
 public:
-    System(class Timer* timer): m_timer(timer){}
+    System(int maxvar, class Timer* timer): m_maxVar(maxvar), m_timer(timer){}
     bool                            metropolisStep(int particle);
     void                            runMetropolisSteps(int numberOfMetropolisSteps);
     void                            setNumberOfParticles(int numberOfParticles);
@@ -40,6 +40,7 @@ private:
     class Sampler*                  m_sampler = nullptr;
     std::vector<class Particle*>    m_particles = std::vector<class Particle*>();
     
+    int                             m_maxVar = 0;
     Timer*                          m_timer = nullptr;
 };
 

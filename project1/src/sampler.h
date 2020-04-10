@@ -16,6 +16,7 @@ public:
     double getEnergy()          { return m_energy; }
 
     void writeResults();
+    void writeTime(double time);
     bool fileexists( const std::string& );
 
 private:

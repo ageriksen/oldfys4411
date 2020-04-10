@@ -48,4 +48,7 @@ void RandomUniform::setupInitialState() {
         m_particles.at(i)->setNumberOfDimensions(m_numberOfDimensions);
         m_particles.at(i)->setPosition(position);
     }
+    std::cout << "---------" << std::endl;
+    std::cout << "setup finalized!!" << std::endl;
+    std::cout << "---------" << std::endl;
 }

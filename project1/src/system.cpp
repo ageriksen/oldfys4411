@@ -19,7 +19,10 @@ bool System::metropolisStep(int particle)
         
     //double oldWave = m_waveFunction->exponent(m_particles);
     double oldWave = m_waveFunction->evaluate(m_particles);
+
+
     std::vector<double> testStep(m_numberOfDimensions);
+
     for (int dim = 0; dim < m_numberOfDimensions; dim++)
     {
         double step = 2*(Random::nextDouble() - 0.5)*m_stepLength;
@@ -49,7 +52,7 @@ bool System::metropolisStep(int particle)
 void System::runMetropolisSteps(int numberOfMetropolisSteps) 
 {
     
-    for( int variation = 0; variation < 6; variation++ )
+    for( int variation = 0; variation < m_maxVar; variation++ )
     {
         m_particles                 = m_initialState->getParticles();
         m_numberOfMetropolisSteps   = numberOfMetropolisSteps;
@@ -71,14 +74,15 @@ void System::runMetropolisSteps(int numberOfMetropolisSteps)
         //m_timer->newTime();
         m_sampler->computeAverages();
         m_sampler->printOutputToTerminal();
-        
         m_sampler->writeResults();
+        
     }//variable variations
     
     m_timer->newTime();
     std::chrono::duration<double> time = m_timer->timeDifference(0, 1);
     std::cout    <<  "   ------   VMC finished    ------"   << std::endl;
     std::cout    <<  " time spent:   "   <<  (double)time.count()<<"s"<<  std::endl;
+    m_sampler->writeTime((double)time.count());
 }
 
 void System::setNumberOfParticles(int numberOfParticles) {
