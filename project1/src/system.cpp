@@ -1,13 +1,4 @@
 #include "system.h"
-#include <cassert>
-#include <cmath>
-#include <iostream>
-#include "sampler.h"
-#include "particle.h"
-#include "WaveFunctions/wavefunction.h"
-#include "Hamiltonians/hamiltonian.h"
-#include "InitialStates/initialstate.h"
-#include "Math/random.h"
 
 bool System::metropolisStep(int particle) 
 {

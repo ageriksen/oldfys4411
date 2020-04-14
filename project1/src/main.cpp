@@ -28,8 +28,8 @@ int main() {
     Timer* timer = new Timer();
 
     System* system = new System(maxVar, timer);
-    system->setHamiltonian              (new HarmonicOscillator(system, omega));
     system->setWaveFunction             (new SimpleGaussian(system, alpha));
+    system->setHamiltonian              (new HarmonicOscillator(system, omega));
     system->setInitialState             (new RandomUniform(system, numberOfDimensions, numberOfParticles, spread));
     system->setEquilibrationFraction    (equilibration);
     system->setStepLength               (stepLength);
