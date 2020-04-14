@@ -1,4 +1,10 @@
 #pragma once
+#include <iostream>
+#include <cassert>
+#include "Math/random.h"
+//#include <random>
+#include "../particle.h"
+#include "../system.h"
 #include "initialstate.h"
 
 class RandomUniform : public InitialState {

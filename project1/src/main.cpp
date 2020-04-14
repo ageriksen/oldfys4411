@@ -4,10 +4,14 @@
 #include "particle.h"
 #include "WaveFunctions/wavefunction.h"
 #include "WaveFunctions/simplegaussian.h"
+
 #include "Hamiltonians/hamiltonian.h"
 #include "Hamiltonians/harmonicoscillator.h"
+#include "Hamiltonians/honumeric.h"
+
 #include "InitialStates/initialstate.h"
 #include "InitialStates/randomuniform.h"
+
 #include "Math/random.h"
 
 using namespace std;
@@ -29,7 +33,8 @@ int main() {
 
     System* system = new System(maxVar, timer);
     system->setWaveFunction             (new SimpleGaussian(system, alpha));
-    system->setHamiltonian              (new HarmonicOscillator(system, omega));
+    //system->setHamiltonian              (new HarmonicOscillator(system, omega));
+    system->setHamiltonian              (new HOnumeric(system, omega));
     system->setInitialState             (new RandomUniform(system, numberOfDimensions, numberOfParticles, spread));
     system->setEquilibrationFraction    (equilibration);
     system->setStepLength               (stepLength);

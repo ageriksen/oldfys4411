@@ -1,10 +1,4 @@
 #include "randomuniform.h"
-#include <iostream>
-#include <cassert>
-#include "Math/random.h"
-//#include <random>
-#include "../particle.h"
-#include "../system.h"
 
 using std::cout;
 using std::endl;

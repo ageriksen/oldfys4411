@@ -1,7 +1,0 @@
-\alpha	E	E exact	\sigma^2	\sigma^2 exact
-0.350000	0.542960	placeholder	0.070578	placeholder
-0.400000	0.503196	placeholder	0.020094	placeholder
-0.450000	0.512950	placeholder	0.007356	placeholder
-0.500000	0.500000	placeholder	0.000000	placeholder
-0.550000	0.500744	placeholder	0.004394	placeholder
-0.600000	0.503610	placeholder	0.017580	placeholder

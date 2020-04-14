@@ -1,21 +1,27 @@
 #include "hamiltonian.h"
 
+#include <iostream>
+#include <string>
+
 Hamiltonian::Hamiltonian(System* system) {
     m_system = system;
 }
 
 double Hamiltonian::numeric() 
 {
-    //return 0.0;
     double h = 0.001;
     double h2 = 1e6;
     std::vector<class Particle*> r = m_system->getParticles();
-    std::vector<class Particle*> rpluss(m_system->getNumberOfParticles());
-    std::vector<class Particle*> rminus(m_system->getNumberOfParticles());
+    std::vector<class Particle*> rpluss;
+    std::vector<class Particle*> rminus;
     for( int i=0; i<m_system->getNumberOfParticles(); i++ )
     {
-        rpluss[i]->setPosition(r[i]->getPosition());
-        rminus[i]->setPosition(r[i]->getPosition());
+        rpluss.push_back(new Particle());
+        rpluss.at(i)->setNumberOfDimensions(m_system->getNumberOfDimensions());
+        rpluss.at(i)->setPosition(r[i]->getPosition());
+        rminus.push_back(new Particle());
+        rminus.at(i)->setNumberOfDimensions(m_system->getNumberOfDimensions());
+        rminus.at(i)->setPosition(r[i]->getPosition());
     }
     double psipluss = 0; double psiminus = 0;
     double psicurrent = m_system->getWaveFunction()->evaluate(r);
@@ -29,8 +35,8 @@ double Hamiltonian::numeric()
             psipluss = m_system->getWaveFunction()->evaluate(rpluss);
             psiminus = m_system->getWaveFunction()->evaluate(rminus);
             kinetic -= ( psiminus + psipluss - 2*psicurrent );
-            rpluss[part]->setPosition(r[part]->getPosition());
-            rminus[part]->setPosition(r[part]->getPosition());
+            rpluss[part]->adjustPosition(-h, dim);
+            rminus[part]->adjustPosition(h, dim);
         }//dimensions
     }//particles
     return 0.5*h2*kinetic/psicurrent;
