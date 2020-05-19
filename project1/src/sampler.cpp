@@ -77,7 +77,6 @@ void Sampler::printOutputToTerminal() {
     cout    <<  " variance                      :   "   <<  m_variance      <<  endl;
     cout    <<  " acceptance ratio              :   "   <<  m_acceptRatio   <<  endl;
     cout    <<  endl;
-    cout    << "checking directories    "   <<  std::endl;
 }
 
 void Sampler::computeAverages() {
@@ -111,23 +110,19 @@ void Sampler::writeResults()
                 "1e"+std::to_string(MCC)+"MC_"
             +   std::to_string(m_system->getNumberOfParticles())+"part_"
             +   std::to_string(m_system->getNumberOfDimensions())+"dim"+".txt";
-    //std::string header = "\\alpha\tE\tE exact\t\\sigma^2\t\\sigma^2 exact\n";
     std::string header = "\\alpha\tE\t\\sigma^2\n";
-    std::string error = "could not create "+newdir+".";
+    std::string directoryerror = "could not create "+newdir+".";
     result = std::to_string(param[0])
         +"\t"+std::to_string(m_energy)
-        /*+"\t"+std::to_string("placeholder")*/
-        /*+"\tplaceholder"*/
-        +"\t"+std::to_string(m_variance)
-        /*+"\t"+std::to_string("placeholder");*/
-        /*+"\tplaceholder"*/;
+        +"\t"+std::to_string(m_variance);
     
 
-    if(!fileexists(dir) && mkdir(newdir.c_str(), S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH)<0) std::cout << error << std::endl;
+    if(!fileexists(dir) && mkdir(newdir.c_str(), S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH)<0) std::cout << directoryerror << std::endl;
     if(!fileexists(dir+"/"+resultfile)){ofile.open(dir+"/"+resultfile, std::ios::ate); ofile<<header; ofile.close();}
 
     if(!ofile.is_open()) ofile.open(dir+"/"+resultfile, std::ios::app);
     ofile << result+"\n";
+    ofile.close();
 
 }
 

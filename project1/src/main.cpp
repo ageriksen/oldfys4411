@@ -18,8 +18,8 @@ using namespace std;
 
 
 int main() {
-    int numberOfDimensions  = 1;
-    int numberOfParticles   = 1;
+    int numberOfDimensions  = 3;
+    int numberOfParticles   = 100;
     int numberOfSteps       = (int) 1e4;
     double omega            = 1.0;          // Oscillator frequency.
     double alpha            = 0.1;          // Variational parameter.

@@ -1,0 +1,82 @@
+==9268==
+==9268== HEAP SUMMARY:
+==9268==     in use at exit: 388,758,632 bytes in 10,798,831 blocks
+==9268==   total heap usage: 50,934,761 allocs, 40,135,930 frees, 1,951,192,597 bytes allocated
+==9268==
+==9268== 64 bytes in 2 blocks are possibly lost in loss record 10 of 23
+==9268==    at 0x4839DEF: operator new(unsigned long) (vg_replace_malloc.c:344)
+==9268==    by 0x11667E: Hamiltonian::numeric() (hamiltonian.cpp:20)
+==9268==    by 0x118FC9: HOnumeric::computeLocalEnergy(std::vector<Particle*, std::allocator<Particle*> >) (honumeric.cpp:30)
+==9268==    by 0x11CAEB: Sampler::sample(bool) (sampler.cpp:39)
+==9268==    by 0x11EF64: System::runMetropolisSteps(int) (system.cpp:56)
+==9268==    by 0x11AE35: main (main.cpp:42)
+==9268==
+==9268== 160 bytes in 5 blocks are possibly lost in loss record 14 of 23
+==9268==    at 0x4839DEF: operator new(unsigned long) (vg_replace_malloc.c:344)
+==9268==    by 0x116745: Hamiltonian::numeric() (hamiltonian.cpp:23)
+==9268==    by 0x118FC9: HOnumeric::computeLocalEnergy(std::vector<Particle*, std::allocator<Particle*> >) (honumeric.cpp:30)
+==9268==    by 0x11CAEB: Sampler::sample(bool) (sampler.cpp:39)
+==9268==    by 0x11EF64: System::runMetropolisSteps(int) (system.cpp:56)
+==9268==    by 0x11AE35: main (main.cpp:42)
+==9268==
+==9268== 480 bytes in 12 blocks are possibly lost in loss record 17 of 23
+==9268==    at 0x4839DEF: operator new(unsigned long) (vg_replace_malloc.c:344)
+==9268==    by 0x118455: __gnu_cxx::new_allocator<double>::allocate(unsigned long, void const*) (new_allocator.h:114)
+==9268==    by 0x118247: std::allocator_traits<std::allocator<double> >::allocate(std::allocator<double>&, unsigned long) (alloc_traits.h:444)
+==9268==    by 0x117EA5: std::_Vector_base<double, std::allocator<double> >::_M_allocate(unsigned long) (stl_vector.h:343)
+==9268==    by 0x11C511: double* std::vector<double, std::allocator<double> >::_M_allocate_and_copy<__gnu_cxx::__normal_iterator<double const*, std::vector<double, std::allocator<double> > > >(unsigned long, __gnu_cxx::__normal_iterator<double const*, std::vector<double, std::allocator<double> > >, __gnu_cxx::__normal_iterator<double const*, std::vector<double, std::allocator<double> > >) (stl_vector.h:1508)
+==9268==    by 0x11C273: std::vector<double, std::allocator<double> >::operator=(std::vector<double, std::allocator<double> > const&) (vector.tcc:226)
+==9268==    by 0x11C023: Particle::setPosition(std::vector<double, std::allocator<double> > const&) (particle.cpp:8)
+==9268==    by 0x11672F: Hamiltonian::numeric() (hamiltonian.cpp:22)
+==9268==    by 0x118FC9: HOnumeric::computeLocalEnergy(std::vector<Particle*, std::allocator<Particle*> >) (honumeric.cpp:30)
+==9268==    by 0x11CAEB: Sampler::sample(bool) (sampler.cpp:39)
+==9268==    by 0x11EF64: System::runMetropolisSteps(int) (system.cpp:56)
+==9268==    by 0x11AE35: main (main.cpp:42)
+==9268==
+==9268== 520 bytes in 13 blocks are possibly lost in loss record 18 of 23
+==9268==    at 0x4839DEF: operator new(unsigned long) (vg_replace_malloc.c:344)
+==9268==    by 0x118455: __gnu_cxx::new_allocator<double>::allocate(unsigned long, void const*) (new_allocator.h:114)
+==9268==    by 0x118247: std::allocator_traits<std::allocator<double> >::allocate(std::allocator<double>&, unsigned long) (alloc_traits.h:444)
+==9268==    by 0x117EA5: std::_Vector_base<double, std::allocator<double> >::_M_allocate(unsigned long) (stl_vector.h:343)
+==9268==    by 0x11C511: double* std::vector<double, std::allocator<double> >::_M_allocate_and_copy<__gnu_cxx::__normal_iterator<double const*, std::vector<double, std::allocator<double> > > >(unsigned long, __gnu_cxx::__normal_iterator<double const*, std::vector<double, std::allocator<double> > >, __gnu_cxx::__normal_iterator<double const*, std::vector<double, std::allocator<double> > >) (stl_vector.h:1508)
+==9268==    by 0x11C273: std::vector<double, std::allocator<double> >::operator=(std::vector<double, std::allocator<double> > const&) (vector.tcc:226)
+==9268==    by 0x11C023: Particle::setPosition(std::vector<double, std::allocator<double> > const&) (particle.cpp:8)
+==9268==    by 0x1167F6: Hamiltonian::numeric() (hamiltonian.cpp:25)
+==9268==    by 0x118FC9: HOnumeric::computeLocalEnergy(std::vector<Particle*, std::allocator<Particle*> >) (honumeric.cpp:30)
+==9268==    by 0x11CAEB: Sampler::sample(bool) (sampler.cpp:39)
+==9268==    by 0x11EF64: System::runMetropolisSteps(int) (system.cpp:56)
+==9268==    by 0x11AE35: main (main.cpp:42)
+==9268==
+==9268==
+==9268== 1,832 (968 direct, 864 indirect) bytes in 11 blocks are definitely lost in loss record 19 of 23
+==9268==    at 0x4839DEF: operator new(unsigned long) (vg_replace_malloc.c:344)
+==9268==    by 0x11EEB1: System::runMetropolisSteps(int) (system.cpp:45)
+==9268==    by 0x11AE35: main (main.cpp:42)
+==9268==
+==9268== 194,377,720 (86,390,240 direct, 107,987,480 indirect) bytes in 2,699,695 blocks are definitely lost in loss record 22 of 23
+==9268==    at 0x4839DEF: operator new(unsigned long) (vg_replace_malloc.c:344)
+==9268==    by 0x116745: Hamiltonian::numeric() (hamiltonian.cpp:23)
+==9268==    by 0x118FC9: HOnumeric::computeLocalEnergy(std::vector<Particle*, std::allocator<Particle*> >) (honumeric.cpp:30)
+==9268==    by 0x11CAEB: Sampler::sample(bool) (sampler.cpp:39)
+==9268==    by 0x11EF64: System::runMetropolisSteps(int) (system.cpp:56)
+==9268==    by 0x11AE35: main (main.cpp:42)
+==9268==
+==9268== 194,377,784 (86,390,304 direct, 107,987,480 indirect) bytes in 2,699,697 blocks are definitely lost in loss record 23 of 23
+==9268==    at 0x4839DEF: operator new(unsigned long) (vg_replace_malloc.c:344)
+==9268==    by 0x11667E: Hamiltonian::numeric() (hamiltonian.cpp:20)
+==9268==    by 0x118FC9: HOnumeric::computeLocalEnergy(std::vector<Particle*, std::allocator<Particle*> >) (honumeric.cpp:30)
+==9268==    by 0x11CAEB: Sampler::sample(bool) (sampler.cpp:39)
+==9268==    by 0x11EF64: System::runMetropolisSteps(int) (system.cpp:56)
+==9268==    by 0x11AE35: main (main.cpp:42)
+==9268==
+==9268== LEAK SUMMARY:
+==9268==    definitely lost: 172,781,512 bytes in 5,399,403 blocks
+==9268==    indirectly lost: 215,975,824 bytes in 5,399,394 blocks
+==9268==      possibly lost: 1,224 bytes in 32 blocks
+==9268==    still reachable: 72 bytes in 2 blocks
+==9268==         suppressed: 0 bytes in 0 blocks
+==9268== Reachable blocks (those to which a pointer was found) are not shown.
+==9268== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==9268==
+==9268== For lists of detected and suppressed errors, rerun with: -s
+==9268== ERROR SUMMARY: 7 errors from 7 contexts (suppressed: 0 from 0)

@@ -215,6 +215,9 @@ EQUALS	Makefile	/^EQUALS = =$/;"	m
 EQUALS	build/Makefile	/^EQUALS = =$/;"	m
 HEX	build/CMakeFiles/3.17.0/CompilerIdC/CMakeCCompilerId.c	/^#define HEX(/;"	d	file:
 HEX	build/CMakeFiles/3.17.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#define HEX(/;"	d	file:
+HONUMERIC_H	Hamiltonians/honumeric.h	/^#define HONUMERIC_H$/;"	d
+HOnumeric	Hamiltonians/honumeric.cpp	/^HOnumeric::HOnumeric(System* system, double omega) :$/;"	f	class:HOnumeric
+HOnumeric	Hamiltonians/honumeric.h	/^class HOnumeric : public Hamiltonian {$/;"	c
 Hamiltonian	Hamiltonians/hamiltonian.cpp	/^Hamiltonian::Hamiltonian(System* system) {$/;"	f	class:Hamiltonian
 Hamiltonian	Hamiltonians/hamiltonian.h	/^class Hamiltonian {$/;"	c
 Hamiltonians/hamiltonian.i	Makefile	/^Hamiltonians\/hamiltonian.i:$/;"	t
@@ -229,6 +232,9 @@ Hamiltonians/harmonicoscillator.o	Makefile	/^Hamiltonians\/harmonicoscillator.o:
 Hamiltonians/harmonicoscillator.o	build/Makefile	/^Hamiltonians\/harmonicoscillator.o:$/;"	t
 Hamiltonians/harmonicoscillator.s	Makefile	/^Hamiltonians\/harmonicoscillator.s:$/;"	t
 Hamiltonians/harmonicoscillator.s	build/Makefile	/^Hamiltonians\/harmonicoscillator.s:$/;"	t
+Hamiltonians/honumeric.i	build/Makefile	/^Hamiltonians\/honumeric.i:$/;"	t
+Hamiltonians/honumeric.o	build/Makefile	/^Hamiltonians\/honumeric.o:$/;"	t
+Hamiltonians/honumeric.s	build/Makefile	/^Hamiltonians\/honumeric.s:$/;"	t
 HarmonicOscillator	Hamiltonians/harmonicoscillator.cpp	/^HarmonicOscillator::HarmonicOscillator(System* system, double omega) :$/;"	f	class:HarmonicOscillator
 HarmonicOscillator	Hamiltonians/harmonicoscillator.h	/^class HarmonicOscillator : public Hamiltonian {$/;"	c
 IA	Math/random.h	/^#define IA /;"	d
@@ -355,6 +361,7 @@ compilling-and-running-the-project	README.html	/^<h2 id="compilling-and-running-
 completing-the-missing-parts	README.html	/^<h2 id="completing-the-missing-parts">Completing the missing parts<\/h2>$/;"	I
 computeAverages	sampler.cpp	/^void Sampler::computeAverages() {$/;"	f	class:Sampler	typeref:typename:void
 computeLocalEnergy	Hamiltonians/harmonicoscillator.cpp	/^double HarmonicOscillator::computeLocalEnergy(std::vector<class Particle*> particles) {$/;"	f	class:HarmonicOscillator	typeref:typename:double
+computeLocalEnergy	Hamiltonians/honumeric.cpp	/^double HOnumeric::computeLocalEnergy(std::vector<class Particle*> particles) {$/;"	f	class:HOnumeric	typeref:typename:double
 const	build/CMakeFiles/3.17.0/CompilerIdC/CMakeCCompilerId.c	/^# define const$/;"	d	file:
 default_target	Makefile	/^default_target: all$/;"	t
 default_target	build/Makefile	/^default_target: all$/;"	t
@@ -430,6 +437,7 @@ m_numberOfMetropolisSteps	system.h	/^    int                             m_numbe
 m_numberOfParameters	WaveFunctions/wavefunction.h	/^    int     m_numberOfParameters = 0;$/;"	m	class:WaveFunction	typeref:typename:int
 m_numberOfParticles	InitialStates/initialstate.h	/^    int m_numberOfParticles = 0;$/;"	m	class:InitialState	typeref:typename:int
 m_omega	Hamiltonians/harmonicoscillator.h	/^    double m_omega = 0;$/;"	m	class:HarmonicOscillator	typeref:typename:double
+m_omega	Hamiltonians/honumeric.h	/^    double m_omega = 0;$/;"	m	class:HOnumeric	typeref:typename:double
 m_parameters	WaveFunctions/wavefunction.h	/^    std::vector<double> m_parameters = std::vector<double>();$/;"	m	class:WaveFunction	typeref:typename:std::vector<double>
 m_particles	InitialStates/initialstate.h	/^    std::vector<Particle*> m_particles;\/\/ = std::vector<Particle*>();$/;"	m	class:InitialState	typeref:typename:std::vector<Particle * >
 m_position	particle.h	/^    std::vector<double> m_position = std::vector<double>();$/;"	m	class:Particle	typeref:typename:std::vector<double>
@@ -458,6 +466,7 @@ newTime	timer.h	/^    void newTime(){timers.push_back(std::chrono::steady_clock:
 nextDouble	Math/random.cpp	/^double Random::nextDouble()$/;"	f	class:Random	typeref:typename:double
 nextGaussian	Math/random.cpp	/^double Random::nextGaussian(double mean, double standardDeviation) {$/;"	f	class:Random	typeref:typename:double
 nextInt	Math/random.cpp	/^int Random::nextInt(int upperLimit) {$/;"	f	class:Random	typeref:typename:int
+numeric	Hamiltonians/hamiltonian.cpp	/^double Hamiltonian::numeric() $/;"	f	class:Hamiltonian	typeref:typename:double
 particle.i	Makefile	/^particle.i:$/;"	t
 particle.i	build/Makefile	/^particle.i:$/;"	t
 particle.o	Makefile	/^particle.o:$/;"	t

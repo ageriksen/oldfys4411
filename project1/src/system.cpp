@@ -8,9 +8,7 @@ bool System::metropolisStep(int particle)
      * at this new position with the one at the old position).
      */
         
-    //double oldWave = m_waveFunction->exponent(m_particles);
     double oldWave = m_waveFunction->evaluate(m_particles);
-
 
     std::vector<double> testStep(m_numberOfDimensions);
 
@@ -20,11 +18,8 @@ bool System::metropolisStep(int particle)
         testStep[dim] = step;
         m_particles[particle]->adjustPosition( testStep[dim], dim );
     }
-    //double newWave = m_waveFunction->exponent(m_particles);
     double newWave = m_waveFunction->evaluate(m_particles);
     
-    //double ratio = std::exp( 2.*newWave - 2.*oldWave );
-    //if (Random::nextDouble() <= ratio) 
     double ratio = (newWave*newWave)/(oldWave*oldWave);
     if( Random::nextDouble() <= ratio )
     {
@@ -61,11 +56,18 @@ void System::runMetropolisSteps(int numberOfMetropolisSteps)
                     m_sampler->sample(acceptedStep);
                 }
             }// particles
+            //std::cout << "--------------" << std::endl;
+            //std::cout << "metropolis step nr " << i << std::endl;
+            //std::cout << "--------------" << std::endl;
         }//Metropolis steps
-        //m_timer->newTime();
+        
+        std::cout << "averaging" << std::endl;
         m_sampler->computeAverages();
         m_sampler->printOutputToTerminal();
+        std::cout << "writing results" << std::endl;
         m_sampler->writeResults();
+        std::cout << "results written" << std::endl;
+        delete m_sampler;
         
     }//variable variations
     

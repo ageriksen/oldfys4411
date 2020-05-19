@@ -1,0 +1,21 @@
+
+
+#   memoryloss at system::runMetroploisStep() on line 44 if I'm not mistaken. see the sampler initialization
+    o   sampler initialized new in each variation of the system. 
+        to maintain accurate time estimates, either change the 
+        initialization, or move the timekeeping
+#   memloss 
+        at operator new(unsigned long)[vg_replace_malloc.c: 344], 
+        by Hamiltonian::numeric() [hamiltonian.cpp: 23],            // <=== difference
+        by HOnumeric::computeLocalEnergy() [honumeric.cpp: 30],
+        by Sampler::sample(bool) [sampler.cpp: 39],
+        by system::runMetropolisSteps [system.cpp: 56],
+        by main [main.cpp: 42]
+
+#   memloss 
+        at operator new(unsigned long)[vg_replace_malloc.c: 344], 
+        by Hamiltonian::numeric() [hamiltonian.cpp: 20],            // <=== difference
+        by HOnumeric::computeLocalEnergy() [honumeric.cpp: 30],
+        by Sampler::sample(bool) [sampler.cpp: 39],
+        by system::runMetropolisSteps [system.cpp: 56],
+        by main [main.cpp: 42]
