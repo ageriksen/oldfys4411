@@ -1,0 +1,1 @@
+june 17th sussed out the background for our simulations. bose-einstein condensate models use rely on a diluteness which we can now exceed. to continue to moddel through denser gasses, quantum monte-carlo could be usefull
